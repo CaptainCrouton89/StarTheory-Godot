@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/graphics/actors/suns/sun1.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/_common/background/starscapes/spaceBackground4.png" type="Texture" id=2]
+[ext_resource path="res://_core/scenes/localSpace/localSpace.gd" type="Script" id=3]
+
+[node name="localSpace" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 438.53
+margin_top = 195.904
+margin_right = 502.53
+margin_bottom = 259.904
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+margin_left = -17.3478
+margin_top = 399.001
+margin_right = 1262.65
+margin_bottom = 1119.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

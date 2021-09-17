@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/light_damage01.wav-13686727c4f2997d5e3dd56d61f2d0c6.sample"
+
+[deps]
+
+source_file="res://assets/audio/combat/explosions/light_damage01.wav"
+dest_files=[ "res://.import/light_damage01.wav-13686727c4f2997d5e3dd56d61f2d0c6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

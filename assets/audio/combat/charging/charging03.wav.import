@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/charging03.wav-3148bb743aa831d71f5c21e79cb0718c.sample"
+
+[deps]
+
+source_file="res://assets/audio/combat/charging/charging03.wav"
+dest_files=[ "res://.import/charging03.wav-3148bb743aa831d71f5c21e79cb0718c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://_core/scenes/start/TextureButton.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/scenes/start/startButton.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/logo/titleText.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/_common/background/starscapes/Galaxy.png" type="Texture" id=4]
+
+[node name="startUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1029.0
+margin_bottom = 654.0
+rect_scale = Vector2( 0.6, 0.6 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1536.0
+margin_bottom = 774.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 50
+custom_constants/margin_left = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+margin_left = 50.0
+margin_right = 1486.0
+margin_bottom = 774.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 778.0
+margin_right = 1536.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.26
+custom_constants/margin_top = 64
+custom_constants/margin_bottom = 70
+
+[node name="startButton" type="TextureButton" parent="VBoxContainer/MarginContainer2"]
+margin_top = 64.0
+margin_right = 1536.0
+margin_bottom = 132.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tambourine_effect.wav-a1f82b731e1e42b8eaa0a5e5a5824417.sample"
+
+[deps]
+
+source_file="res://assets/audio/modules/weapons/tambourine_effect.wav"
+dest_files=[ "res://.import/tambourine_effect.wav-a1f82b731e1e42b8eaa0a5e5a5824417.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

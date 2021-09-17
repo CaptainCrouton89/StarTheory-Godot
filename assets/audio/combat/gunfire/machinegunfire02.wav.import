@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/machinegunfire02.wav-daccd1142bab9cdead9ca6d39b92e30c.sample"
+
+[deps]
+
+source_file="res://assets/audio/combat/gunfire/machinegunfire02.wav"
+dest_files=[ "res://.import/machinegunfire02.wav-daccd1142bab9cdead9ca6d39b92e30c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

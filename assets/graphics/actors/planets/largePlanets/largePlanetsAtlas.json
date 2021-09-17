@@ -1,0 +1,41 @@
+{
+	"textures": [
+		{
+			"image": "largePlanetAtlas.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 48,
+				"h": 48
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "largePlanets-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 46,
+						"h": 46
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 46,
+						"h": 46
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:9d1bfbf70521f29ce0ec8a68fc26a346:dfb52ec6f71bfbaeb12b2eac10ac8524:2ffc7abbe7b14a89f8be7f94def60c45$"
+	}
+}

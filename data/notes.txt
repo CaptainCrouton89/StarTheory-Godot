@@ -1,0 +1,90 @@
+Descriptions should be what people aboard the ship would say about it?
+
+weapons.txt
+
+range adn damage tradeoff
+
+broadside does more damage, must be sideways, deals variable damage to random sample of modules.
+Or...
+Can only have p to 3 
+
+Turret does less damage, but can target specific modules in enemy ship. Deals non-exact amount of damage. 50% variance.
+
+Energy: Blocked by hull armor, deals very little damage to them, poorly blocked by energy shields
+Explosive: Blocked by energy shields, does very little damage to them, poorly blocked by hull armor
+Kinetic: Moderate damage to both, moderately blocked by both
+
+Energy: High damage per building, but low overall damage: (1000)
+Explosive: Low damage per building, but increased overall damage: (500, 500, 500, 500)
+Kinetic: Middle ground: (750, 750)
+
+
+
+Lasers: Not blocked by energy shield, decrease hull armor
+Kinetics: Blocked by everything, but very high damage
+Missiles/Demolitions?: Not blocked by hull armor, destroy energy shields
+Broadside: Higher damage, can only fire side
+Turret: Fire in forward or sideways
+
+
+Strategies: 
+
+ms: milliseconds
+
+Weapons Template
+
+"name": the name of the weapon in plain text (string)
+"description": the description of the weapon, to be displayed (string)
+"mounting": the mounting type, "turret" or "broadside" (string)
+"damageType": the damage type, "kinetic," "explosive," or "energy" (string)
+"damage": how much damage the weapon deals (integer, 100-10000)
+"range": the maximum range at which the weapon will fire (integer, 1-10)
+"u":how much time is required that the crew member works at the job. Adjusted by the crew member's speed (integer in ms)
+"coolDown": how much time must pass before the weapon is used again (integer in ms)
+"delay": how much time after the action is completed for the effect to occur. Low for energy weapons, high for explosives (integer in ms)
+"skills": which skills are used for this weapon. Usually the same as the damage type.
+
+
+Defenses Template
+
+"name": the name of the defense in plain text (string)
+"description": the description of the defense, to be displayed (string)
+"defenseType": the damage type this defense defends from, either "kinetic," "explosive," or "energy" (string)
+"mitigationPower": the flat amount of damage of that type that is mitigated from each attack (integer);
+"duration": the duration of the damage mitigation (integer in ms)
+"timeInvestment": how much time is required that the crew member works at the job. Adjusted by the crew member's speed (integer in ms)
+"coolDown": how much time must pass before the defense is used again (integer in ms)
+"delay": how much time after the action is completed for the effect to occur. Defaults to 0 (integer in ms)
+"skills": which skills are used for this defense.
+
+
+Repairs Template
+
+"name": the name of the repair in plain text (string)
+"description": the description of the repair, to be displayed (string)
+"defenseType": the defense type this increases, either "hull" or "energy" (string)
+"hitpointBonus": the number of hitpoints regained over the duration period (integer)
+"duration": how long it takes to regain the hitpoints, usually 0. (integer in ms)
+"timeInvestment": how much time is required that the crew member works at the job. Adjusted by the crew member's speed (integer in ms)
+"coolDown": how much time must pass before the repair is used again (integer in ms)
+"delay": how much time after the action is completed for the effect to occur. Defaults to 0 (integer in ms)
+"skills": which skills are used for this repair.
+
+
+Crew
+(not stored in a .json file, since they are randomly generated as opposed to pre-generated)
+
+
+Engines Template
+Commands: "m" + "b" is face broadside, "m" + "f" is face forward, "m" + "a" is face aft, "m" + "1" is accelerate to 1, etc.
+
+"name": the name of the maneuvering module (string)
+"description": The descripton of the module, to be displayed (string)
+"acceleration": how long it takes to reach top speed. Acceleration affected by ship size (integer in ms)
+
+
+
+
+Modules Template
+- Buffing 
+- Positioin

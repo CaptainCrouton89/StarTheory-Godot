@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=2]
+
+[ext_resource path="res://assets/graphics/_common/ui/menuBox.png" type="Texture" id=1]
+
+[resource]
+"Panel/icons/Nice Panel" = ExtResource( 1 )

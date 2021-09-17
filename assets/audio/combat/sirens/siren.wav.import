@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/siren.wav-b163a4fe5d9910378c0be0b966e8c99e.sample"
+
+[deps]
+
+source_file="res://assets/audio/combat/sirens/siren.wav"
+dest_files=[ "res://.import/siren.wav-b163a4fe5d9910378c0be0b966e8c99e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://_core/actors/shipItems/modules/gyroscope.gd" type="Script" id=1]
+
+[node name="Gyroscope" type="Node"]
+script = ExtResource( 1 )

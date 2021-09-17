@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://_core/actors/inventories/inventory.gd" type="Script" id=1]
+[ext_resource path="res://_core/actors/inventories/moduleInventory.gd" type="Script" id=2]
+[ext_resource path="res://_core/actors/inventories/crewInventory.gd" type="Script" id=3]
+[ext_resource path="res://_core/actors/inventories/shipInventory.gd" type="Script" id=4]
+[ext_resource path="res://_core/actors/inventories/cargoInventory.gd" type="Script" id=5]
+
+[node name="inventory" type="Node"]
+script = ExtResource( 1 )
+
+[node name="moduleInventory" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="cargoInventory" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="crewInventory" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="shipInventory" type="Node" parent="."]
+script = ExtResource( 4 )

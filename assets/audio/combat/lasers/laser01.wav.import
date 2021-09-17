@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laser01.wav-66ab12c3f2918103c39175da4d73a210.sample"
+
+[deps]
+
+source_file="res://assets/audio/combat/lasers/laser01.wav"
+dest_files=[ "res://.import/laser01.wav-66ab12c3f2918103c39175da4d73a210.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_core/actors/galaxy/stars/planetManager.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+var display_name = 'defaultStarSystemName'
+var galaxy
+var adjacentStars
+var layer = layer
+var degree = degree
+var sprite
+
+
+func _ready():
+	pass
+
+func init(galaxy, layer, degree):
+	self.galaxy = galaxy
+	self.layer = layer
+	self.degree = degree
+	$planetManager.init(4)
+	$planetManager.gen_planets()
+
+"
+
+[node name="starSystem" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="planetManager" type="Node" parent="."]
+script = ExtResource( 1 )

@@ -1,0 +1,127 @@
+{
+    "module": {
+        "weapon": {
+            "Whistler": {
+                "description": "The whistler was named after the eerie whistling sound emitted when the first of these cannons was tested. However, when fired in conjunction with an entire broadside array, the shrieking noise is earsplitting. Pirates will frequently use a whistler to fire a warning shot to alert merchants of their presence.",
+                "mounting": "broadside",
+                "damage_type": "kinetic",
+                "damage": 750,
+                "reach": 3,
+                "time_investment": 2,
+                "cooldown": 3,
+                "delay": 1,
+                "skills": "kinetic",
+                "texture": "whistler",
+                "launch_sound": "whistler_launch",
+                "effect_sound": "whistler_effect"
+            },
+            "Tambourine": {
+                "description": "Research for the tambourine began after a mixup between Sir Yalsley Peppermint, the reknown percussionist, was mistaken for the head of the missile research and development department, Mr. Parsley Yepperkint. Forty-thousand DKs later, Peppermint had produced the 'tambourine', a meager—though impressive, given his background—intersteller missile turret. Despite it's weak payload, the multitude of explosions from the tambourine can cause widespread destruction.",
+                "mounting": "turret",
+                "damage_type": "demolition",
+                "damage": 500,
+                "reach": 4,
+                "time_investment": 3,
+                "cooldown": 4,
+                "delay": 2,
+                "skills": "demolition",
+                "texture": "tambourine",
+                "launch_sound": "tambourine_launch",
+                "effect_sound": "tambourine_effect"
+            },
+            "Johnston J-Beam": {
+                "description": "The Johnston j-beam is small, but packs a punch. It was originally intended for vaporizing protestors from the balcony of Queen Alexandria's bedroom, but when she complained about the carriage sized craters it left in the courtyard, the J-Beam found it's home mounted on the bows of astonautic ships.",
+                "mounting": "turret",
+                "damage_type": "energy",
+                "damage": 1000,
+                "reach": 5,
+                "time_investment": 4,
+                "cooldown": 8,
+                "delay": 3,
+                "skills": "energy",
+                "texture": "johnston_jbeam",
+                "launch_sound": "johnston_jbeam_launch",
+                "effect_sound": "light_damage01"
+            }
+        },
+        "gyroscope": {
+            "Rocker": {
+                "description": "Swivels you around.",
+                "speed": 4000,
+                "time_investment": 0.5,
+                "cooldown": 4,
+                "delay": 0,
+                "skills": "pilot"
+            }
+        },
+        "engine": {
+            "Putt-putt": {
+                "description": "Not great, but it gets the job done.",
+                "acceleration": 0.5,
+                "max_speed": 2,
+                "time_investment": 0.5,
+                "cooldown": 4,
+                "delay": 0,
+                "skills": "pilot"
+            }
+        },
+        "repair": {
+            "Nanobots": {
+                "description": "Will repaire your hull!",
+                "defense_type": "hull_armor",
+                "health_per_second": 30,
+                "duration": 5000,
+                "time_investment": 5,
+                "cooldown": 2,
+                "delay": 0,
+                "skills": "engineer"
+            }
+        },
+        "mitigation": {
+            "Shield Boost": {
+                "description": "Mitigates some incoming kinetic damage over the next few seconds.",
+                "damage_type": "kinetic",
+                "mitigation_power": 0.2,
+                "duration": 5,
+                "time_investment": 5,
+                "cooldown": 8,
+                "delay": 0,
+                "skills": "engineer"
+            }
+        }
+    },
+    "ship": {
+        "Star Sparrow": {
+            "description": "",
+            "space": 15,
+            "health": 1600,
+            "hull_armor": 300,
+            "energy_shields": 700,
+            "warpdrive": 0
+        },
+        "Stingray": {
+            "description": "",
+            "space": 20,
+            "health": 2000,
+            "hull_armor": 500,
+            "energy_shields": 500,
+            "warpdrive": 0
+        }
+    },
+    "cargo": {
+        "Luxury Goods": {
+            "description": "",
+            "base_value": 100,
+            "weight": 10,
+            "legal": 4
+        }
+    },
+    "crewMember": {
+        "Titus, Storm-Breaker": {
+            "description": "Insane pilot—went through solar storm blah blah",
+            "skills": "pilot",
+            "speed": 1.5,
+            "potency": 0.5
+        }
+    }
+}

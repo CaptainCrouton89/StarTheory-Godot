@@ -1,0 +1,804 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://_core/scenes/combat/combat.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/_common/ui/menuBox.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/actors/ships/sparrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/actors/ships/dunkirk.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/scenes/combat/bridge.png" type="Texture" id=5]
+[ext_resource path="res://_core/scenes/combat/Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://assets/graphics/scenes/combat/UI/ModulePanel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/audio/combat/explosions/explosion01.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/combat/explosions/explosion03.wav" type="AudioStream" id=9]
+[ext_resource path="res://_core/scenes/combat/Enemy/EnemyAI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/graphics/scenes/combat/1.jpg.webp" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/_common/ui/frame51x64.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/scenes/combat/shipIcon.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/scenes/combat/blackSpace.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/_common/ui/success.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/scenes/combat/UI/forward.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/_common/ui/greeFillBarBackground.png" type="Texture" id=18]
+[ext_resource path="res://assets/graphics/_common/ui/redFillBarBackground.png" type="Texture" id=19]
+[ext_resource path="res://_core/scenes/combat/Hitpoints.gd" type="Script" id=20]
+[ext_resource path="res://_core/scenes/combat/Shield.gd" type="Script" id=21]
+[ext_resource path="res://_core/scenes/combat/Hull.gd" type="Script" id=22]
+[ext_resource path="res://_core/scenes/combat/Enemy/Hitpoints.gd" type="Script" id=23]
+[ext_resource path="res://_core/scenes/combat/Enemy/Shield.gd" type="Script" id=24]
+[ext_resource path="res://_core/scenes/combat/Enemy/Hull.gd" type="Script" id=25]
+
+[node name="combat" type="Node2D"]
+position = Vector2( -1024, -640 )
+scale = Vector2( 0.99979, 1.00033 )
+script = ExtResource( 1 )
+
+[node name="Stars" type="TextureRect" parent="."]
+anchor_right = 0.652
+anchor_bottom = 0.31
+margin_left = -808.0
+margin_top = -509.0
+margin_right = 369.0
+margin_bottom = 204.0
+rect_scale = Vector2( 1.38015, 1.43064 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player ship" type="Sprite" parent="."]
+visible = false
+position = Vector2( -437.428, -933.636 )
+texture = ExtResource( 11 )
+
+[node name="EnemyAI" parent="." instance=ExtResource( 10 )]
+
+[node name="View" type="Control" parent="."]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bridge2" type="TextureRect" parent="View"]
+anchor_left = 0.000420302
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -767.991
+margin_top = -422.0
+margin_right = 681.009
+margin_bottom = 573.0
+rect_scale = Vector2( 1.05893, 0.872421 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camera" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 6 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UI"]
+anchor_left = -0.000536601
+anchor_right = 0.999463
+anchor_bottom = 1.0
+margin_left = -0.746063
+margin_top = 1.91098
+margin_right = -0.746094
+margin_bottom = 1.91095
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="NinePatchRect" parent="UI/UI"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 162.0
+margin_bottom = 701.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.561554
+margin_top = -0.561523
+margin_right = 0.561554
+margin_bottom = -0.561523
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hitpoints" type="TextureProgress" parent="UI/UI/Stats/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 699.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 100.0
+texture_progress = ExtResource( 19 )
+fill_mode = 3
+nine_patch_stretch = true
+script = ExtResource( 20 )
+
+[node name="Hull" type="TextureProgress" parent="UI/UI/Stats/HBoxContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 699.0
+size_flags_horizontal = 3
+value = 100.0
+texture_progress = ExtResource( 18 )
+fill_mode = 3
+nine_patch_stretch = true
+script = ExtResource( 22 )
+
+[node name="Shield" type="TextureProgress" parent="UI/UI/Stats/HBoxContainer"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 699.0
+size_flags_horizontal = 3
+value = 100.0
+texture_progress = ExtResource( 16 )
+fill_mode = 3
+nine_patch_stretch = true
+script = ExtResource( 21 )
+
+[node name="modulesSelectionMenu" type="NinePatchRect" parent="UI/UI"]
+anchor_right = 1.0
+anchor_bottom = 0.229
+margin_left = 163.0
+margin_top = -1.0
+margin_right = -354.0
+margin_bottom = -17.42
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 96, 96 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UI/modulesSelectionMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModuleBar" type="GridContainer" parent="UI/UI/modulesSelectionMenu/MarginContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 1015.0
+margin_bottom = 205.0
+columns = 9
+
+[node name="ModulePanel1" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_right = 108.0
+margin_bottom = 64.0
+
+[node name="ModulePanel10" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 112.0
+margin_right = 220.0
+margin_bottom = 64.0
+
+[node name="ModulePanel11" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 224.0
+margin_right = 332.0
+margin_bottom = 64.0
+
+[node name="ModulePanel12" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 336.0
+margin_right = 444.0
+margin_bottom = 64.0
+
+[node name="ModulePanel13" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 448.0
+margin_right = 556.0
+margin_bottom = 64.0
+
+[node name="ModulePanel14" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 560.0
+margin_right = 668.0
+margin_bottom = 64.0
+
+[node name="ModulePanel15" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 672.0
+margin_right = 780.0
+margin_bottom = 64.0
+
+[node name="ModulePanel16" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 784.0
+margin_right = 892.0
+margin_bottom = 64.0
+
+[node name="ModulePanel17" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 896.0
+margin_right = 1004.0
+margin_bottom = 64.0
+
+[node name="ModulePanel18" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_top = 68.0
+margin_right = 108.0
+margin_bottom = 132.0
+
+[node name="ModulePanel19" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 112.0
+margin_top = 68.0
+margin_right = 220.0
+margin_bottom = 132.0
+
+[node name="ModulePanel20" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 224.0
+margin_top = 68.0
+margin_right = 332.0
+margin_bottom = 132.0
+
+[node name="ModulePanel21" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 336.0
+margin_top = 68.0
+margin_right = 444.0
+margin_bottom = 132.0
+
+[node name="ModulePanel22" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 448.0
+margin_top = 68.0
+margin_right = 556.0
+margin_bottom = 132.0
+
+[node name="ModulePanel23" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 560.0
+margin_top = 68.0
+margin_right = 668.0
+margin_bottom = 132.0
+
+[node name="ModulePanel24" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 672.0
+margin_top = 68.0
+margin_right = 780.0
+margin_bottom = 132.0
+
+[node name="ModulePanel25" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 784.0
+margin_top = 68.0
+margin_right = 892.0
+margin_bottom = 132.0
+
+[node name="ModulePanel26" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 896.0
+margin_top = 68.0
+margin_right = 1004.0
+margin_bottom = 132.0
+
+[node name="ModulePanel27" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_top = 136.0
+margin_right = 108.0
+margin_bottom = 200.0
+
+[node name="ModulePanel2" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 112.0
+margin_top = 136.0
+margin_right = 220.0
+margin_bottom = 200.0
+
+[node name="ModulePanel3" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 224.0
+margin_top = 136.0
+margin_right = 332.0
+margin_bottom = 200.0
+
+[node name="ModulePanel4" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 336.0
+margin_top = 136.0
+margin_right = 444.0
+margin_bottom = 200.0
+
+[node name="ModulePanel5" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 448.0
+margin_top = 136.0
+margin_right = 556.0
+margin_bottom = 200.0
+
+[node name="ModulePanel6" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 560.0
+margin_top = 136.0
+margin_right = 668.0
+margin_bottom = 200.0
+
+[node name="ModulePanel7" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 672.0
+margin_top = 136.0
+margin_right = 780.0
+margin_bottom = 200.0
+
+[node name="ModulePanel8" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 784.0
+margin_top = 136.0
+margin_right = 892.0
+margin_bottom = 200.0
+
+[node name="ModulePanel9" parent="UI/UI/modulesSelectionMenu/MarginContainer/ModuleBar" instance=ExtResource( 7 )]
+margin_left = 896.0
+margin_top = 136.0
+margin_right = 1004.0
+margin_bottom = 200.0
+
+[node name="Combat Bar" type="NinePatchRect" parent="UI/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 702.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 96, 96 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UI/Combat Bar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 1529.0
+margin_bottom = 272.0
+
+[node name="Movement" type="VBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer"]
+margin_right = 394.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.57
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement"]
+margin_right = 394.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.47
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/NinePatchRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="TextureRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/NinePatchRect2/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 390.0
+margin_bottom = 194.0
+texture = ExtResource( 14 )
+stretch_mode = 1
+
+[node name="Ship Map Icon" type="Sprite" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/NinePatchRect2/MarginContainer"]
+position = Vector2( 57.3364, 86.2025 )
+rotation = 1.5708
+texture = ExtResource( 13 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement"]
+margin_top = 202.0
+margin_right = 394.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.69
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2"]
+margin_right = 394.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer"]
+margin_right = 195.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer2"]
+margin_right = 95.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer2/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+stretch_mode = 6
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer2"]
+margin_left = 99.0
+margin_right = 195.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+toggle_mode = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer2/Button2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer"]
+margin_left = 199.0
+margin_right = 394.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer"]
+margin_right = 62.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+stretch_mode = 6
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer"]
+margin_left = 66.0
+margin_right = 128.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+toggle_mode = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer/Button2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer"]
+margin_left = 132.0
+margin_right = 195.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+toggle_mode = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Movement/MarginContainer2/HBoxContainer/HBoxContainer/Button3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Targeting" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer"]
+margin_left = 398.0
+margin_right = 834.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.63
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer"]
+margin_right = 436.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Enemy Stats" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2"]
+margin_right = 83.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/Enemy Stats"]
+anchor_left = -0.0100943
+anchor_top = -0.002
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.561554
+margin_top = -0.029523
+margin_right = -0.276245
+margin_bottom = -0.561523
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hitpoints" type="TextureProgress" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/Enemy Stats/HBoxContainer"]
+margin_right = 25.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 100.0
+texture_progress = ExtResource( 19 )
+fill_mode = 3
+nine_patch_stretch = true
+script = ExtResource( 23 )
+
+[node name="Shield" type="TextureProgress" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/Enemy Stats/HBoxContainer"]
+margin_left = 29.0
+margin_right = 54.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+value = 100.0
+texture_progress = ExtResource( 18 )
+fill_mode = 3
+nine_patch_stretch = true
+script = ExtResource( 24 )
+
+[node name="Hull" type="TextureProgress" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/Enemy Stats/HBoxContainer"]
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+value = 100.0
+texture_progress = ExtResource( 16 )
+fill_mode = 3
+nine_patch_stretch = true
+script = ExtResource( 25 )
+
+[node name="T argetingPanel" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2"]
+margin_left = 87.0
+margin_right = 436.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="Targeting" type="GridContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModulePanel" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_right = 113.0
+margin_bottom = 86.0
+
+[node name="ModulePanel2" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 117.0
+margin_right = 230.0
+margin_bottom = 86.0
+
+[node name="ModulePanel3" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 234.0
+margin_right = 347.0
+margin_bottom = 86.0
+
+[node name="ModulePanel4" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_top = 90.0
+margin_right = 113.0
+margin_bottom = 176.0
+
+[node name="ModulePanel5" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 117.0
+margin_top = 90.0
+margin_right = 230.0
+margin_bottom = 176.0
+
+[node name="ModulePanel6" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 234.0
+margin_top = 90.0
+margin_right = 347.0
+margin_bottom = 176.0
+
+[node name="ModulePanel7" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_top = 180.0
+margin_right = 113.0
+margin_bottom = 266.0
+
+[node name="ModulePanel8" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 117.0
+margin_top = 180.0
+margin_right = 230.0
+margin_bottom = 266.0
+
+[node name="ModulePanel9" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/HBoxContainer2/T argetingPanel/Targeting" instance=ExtResource( 7 )]
+margin_left = 234.0
+margin_top = 180.0
+margin_right = 347.0
+margin_bottom = 266.0
+
+[node name="Log" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer"]
+visible = false
+margin_top = 190.0
+margin_right = 436.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Targeting/VBoxContainer/Log"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 144.0
+margin_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection Info" type="HBoxContainer" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer"]
+margin_left = 838.0
+margin_right = 1523.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.99
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Selection Info"]
+margin_right = 340.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="UI/UI/Combat Bar/MarginContainer/HBoxContainer/Selection Info"]
+margin_left = 344.0
+margin_right = 685.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 102, 128 )
+patch_margin_left = 41
+patch_margin_top = 38
+patch_margin_right = 42
+patch_margin_bottom = 38
+
+[node name="LeftAudio" type="AudioStreamPlayer2D" parent="."]
+visible = false
+position = Vector2( -465.072, -12.3875 )
+stream = ExtResource( 8 )
+
+[node name="RightAudio" type="AudioStreamPlayer2D" parent="."]
+visible = false
+position = Vector2( 423.777, -5.72427 )
+stream = ExtResource( 9 )
+
+[node name="CenterAudio" type="AudioStreamPlayer2D" parent="."]
+visible = false
+position = Vector2( 0.683907, -1.17123 )
+stream = ExtResource( 9 )
+
+[node name="AboveAudio" type="AudioStreamPlayer2D" parent="."]
+visible = false
+position = Vector2( 3.53095, -273.216 )
+stream = ExtResource( 9 )
+
+[node name="BelowAudio" type="AudioStreamPlayer2D" parent="."]
+visible = false
+position = Vector2( 2.39216, 288.516 )
+stream = ExtResource( 9 )
+
+[node name="dunkirk" type="Sprite" parent="."]
+position = Vector2( 903.523, -728.122 )
+texture = ExtResource( 4 )
+
+[node name="sparrow" type="Sprite" parent="."]
+position = Vector2( 598.298, -652.604 )
+texture = ExtResource( 3 )
